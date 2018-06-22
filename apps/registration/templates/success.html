@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+</head>
+<body>
+    <section class="jumbotron text-center">
+        <div class="container">
+        <h1 class="jumbotron-heading">Success! Welcome, {{first_name}}</h1>
+        <p class="lead text-muted">Successfully Registerd on {{datetimenow}}.</p>
+        </div>
+    </section>
+
+    <h4 class="mb-3">Your Information</h4>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            First Name: {{first_name}}
+        </div>
+        <div class="col-md-6 mb-3">
+            Last Name: {{last_name}}
+        </div>
+    </div>
+
+    <hr class="mb-4">
+    <a class="btn btn-primary btn-lg btn-block" href="/">Go Back</a>
+
+</body>
+</html>

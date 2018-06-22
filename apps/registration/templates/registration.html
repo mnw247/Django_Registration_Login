@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+	
+		.information {
+			display: inline-block;
+			width: 600px;
+			padding: 10px;
+		}
+		h1 {
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	
+		<form action='/register' method='POST'>
+			{% csrf_token %}
+			<div class="information">
+		    	<label for="exampleInputFirstName">First Name</label> 
+		    	<p>{{ first_name }}</p>
+		    	<input type="text" class="form-control" id="first_name" aria-describedby="name Help" placeholder="Enter First name" name="first_name">
+		    	
+		    </div>
+		    <div class="information">
+		    	<label for="exampleInputLastName">Last Name</label>
+		    	<input type="text" class="form-control" id="last_name" aria-describedby="nameHelp" placeholder="Enter Last Name" name="last_name">
+		    	
+		  </div>
+			<div class="information">
+		    	<label for="exampleInputEmail1">Email address</label>
+		    	<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email" name="email">
+		    	
+		    </div>
+		    <div class="information">
+		    	<label for="exampleInputPassword1">Password</label>
+		    	<input type="password" class="form-control" id="password" placeholder="Password" name="password">
+		    </div>
+		    <div class="information">
+		    	<label for="exampleInputPassword1">Verify Password</label>
+		    	<input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="Verify password" name="verifypass">
+		    </div>
+
+			<button type="submit" class="btn btn-primary" name="Register">Register</button>
+			
+			{% for message in messages %}
+			<p>{{message}}</p>
+			{%endfor%}
+
+		</form>
+		<h1>Login</h1>
+		<form action='/login' method='POST'>
+			{% csrf_token %}
+			<div class="information">
+		    	<label for="exampleInputEmail1">Email address</label>
+		    	<input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email" name="email_login">
+		    	
+		    </div>
+		    <div class="information">
+		    	<label for="exampleInputPassword1">Password</label>
+		    	<input type="password" class="form-control" id="password" placeholder="Password" name="password_login">
+			</div>
+			<button type="submit" class="btn btn-primary" name="Login">Login</button>
+
+			{% for msg in messages %}
+			<p>{{msg}}</p>
+			{%endfor%}
+		</form>
+
+</body>
+</html>
