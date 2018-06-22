@@ -15,7 +15,6 @@ def register(request):
 		return redirect('/')
 	else:
 		User.objects.create(first_name = request.POST['first_name'], last_name = request.POST['last_name'], email = request.POST['email'], password = bcrypt.hashpw(request.POST['password'].encode(), bcrypt.gensalt()))
-		request.session['id'] = User.objects.get(email = request.POST['email_login']).id 
 		return redirect('/success')
 
 
@@ -31,12 +30,8 @@ def login(request):
 
 def success(request):
 	first_name = User.objects.get(id=request.session['id']).first_name
-	print(first_name)
-	print(request.session['id'])
 	last_name = User.objects.get(id=request.session['id']).last_name
-	print(last_name)
-	print(request.session['id'])
 	datetimenow = datetime.now()
-	print(datetimenow)
-	return render(request, 'success.html')
+	context = {"first_name":first_name, "last_name":last_name, "datetimenow":datetimenow}
+	return render(request, 'success.html', context)
 
